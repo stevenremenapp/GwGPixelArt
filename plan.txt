@@ -1,0 +1,8 @@
+create grid upon clicking the submit button
+  need a make grid function
+    parameters: gridHeight (number input) & gridWidth (number input)
+    create: gridHeight (html table row - tr) & gridWidth (html table column - td) element up to number input by user and add to grid
+
+draw to grid with mouse
+
+eraser feature
