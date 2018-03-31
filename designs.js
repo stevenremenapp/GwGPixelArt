@@ -1,38 +1,40 @@
 // Select color input
-let colorInput = document.querySelector('#colorPicker').value;
+let colorInput = document.querySelector('#colorPicker');
 
-// Select size input
+// Select the selected color
 
-let gridHeight = document.querySelector('#inputHeight').value;
-let gridWidth = document.querySelector('#inputWidth').value;
+let selectedColor = colorInput.value;
+
+
 
 // Select table
 
 let pixelGrid = document.querySelector('#pixelCanvas');
 
+// Select the Submit button
+
+let submitGrid = document.querySelector('#submitGrid');
+
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid() {
 
-  //gridHeight
+  // Select size inputs
 
+  let gridHeight = document.querySelector('#inputHeight').value;
+  let gridWidth = document.querySelector('#inputWidth').value;
 
-  //gridWidth
-
-
-  //for each number up to gridHeight
-
+  //access gridHeight according to input
   for (let row = 0; row < gridHeight; row++) {
+    //perform action correct number of times -- add click listener to each cell for color
     console.log('add row to table');
+    //access gridWidth according to input
     for (let column = 0; column < gridWidth; column++) {
+      //perform action correct number of times
       console.log('add column to table');
     };
   };
 
-    //add row to table element
-
-    //for each number up to gridWidth
-
-      //add column to table element
-
 }
+
+submitGrid.addEventListener('click', makeGrid);
