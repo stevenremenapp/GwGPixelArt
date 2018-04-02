@@ -16,6 +16,19 @@ h2:first-of-type {
     margin-top: 0.5em;
 }
 
+input[type=image] {
+  height: 30px;
+  width: auto;
+}
+
+#eraser {
+  border: 1px solid #999;
+}
+
+#eraserOff {
+  border: 1px solid #ed1c24;
+}
+
 table,
 tr,
 td {

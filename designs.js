@@ -18,6 +18,11 @@ let submitGrid = document.querySelector('#submitGrid');
 //Select the Grid size form
 let gridSizeForm = document.querySelector('#sizePicker');
 
+// Select the eraser
+let eraser = document.querySelector('#eraser');
+
+let eraserOff = document.querySelector('#eraserOff');
+
 // Boolean to check for dragging
 let isClicked = false;
 
@@ -109,7 +114,16 @@ gridSizeForm.addEventListener('submit', function(e) {
 });
 
 // Update the selectedColor when using color picker
-colorInput.addEventListener('change', updateColor);
+colorInput.addEventListener('input', updateColor);
+
+// Update the selected color to white when clicking eraser
+eraser.addEventListener('click', function() {
+  selectedColor = '#fff';
+});
+
+eraserOff.addEventListener('click', function() {
+  selectedColor = colorInput.value;
+});
 
 // Update background color of cell when clicked
 
