@@ -1,11 +1,16 @@
+// -------- VARIABLES
+
 // Select color input
 let colorInput = document.querySelector('#colorPicker');
 
-// Select the selected color
+// Select the updated chosen color
 let selectedColor = colorInput.value;
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
+
+// Select specific cells
+let cell = document.querySelectorAll('td');
 
 // Select the Submit button
 let submitGrid = document.querySelector('#submitGrid');
@@ -13,6 +18,7 @@ let submitGrid = document.querySelector('#submitGrid');
 //Select the Grid size form
 let gridSizeForm = document.querySelector('#sizePicker');
 
+// -------- FUNCTIONS
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid(e) {
@@ -54,7 +60,24 @@ function makeGrid(e) {
   };
 };
 
+// Update the selectedColor data when using color picker
+function updateColor() {
+  selectedColor = colorInput.value;
+}
+
+
+// -------- EVENT LISTENERS
+
 //upon submission of form run makeGrid() allowing for prevention of default reload action
 gridSizeForm.addEventListener('submit', function(e) {
   makeGrid(e);
+});
+
+// Update the selectedColor when using color picker
+colorInput.addEventListener('change', updateColor);
+
+// Update background color of cell when clicked
+
+cell.addEventListener('click', function() {
+  cell.style.backgroundColor = selectedColor;
 });

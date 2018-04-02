@@ -25,6 +25,7 @@ td {
 table {
     border-collapse: collapse;
     margin: 0 auto;
+    cursor: crosshair;
 }
 
 tr {
