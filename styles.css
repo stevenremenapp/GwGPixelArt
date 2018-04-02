@@ -25,8 +25,16 @@ input[type=image] {
   border: 1px solid #999;
 }
 
+#eraser:hover {
+  background-color: #ccc;
+}
+
 #eraserOff {
   border: 1px solid #ed1c24;
+}
+
+#eraserOff:hover {
+  background-color: #ffb7ba;
 }
 
 table,
