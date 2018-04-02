@@ -18,6 +18,9 @@ let submitGrid = document.querySelector('#submitGrid');
 //Select the Grid size form
 let gridSizeForm = document.querySelector('#sizePicker');
 
+// Boolean to check for dragging
+let isClicked = false;
+
 // -------- FUNCTIONS
 
 // When size is submitted by the user, call makeGrid()
@@ -68,14 +71,34 @@ function updateColor() {
 }
 
 
-// Update background color of td's when clicking them
+// Update background color of td's when CLICKING them
 // HAVE TO USE EVENT DELEGATION BECAUSE TD'S ARE DYNAMICALLY GENERATED
 pixelGrid.addEventListener('click', function(e) {
-  if (e.target && e.target.matches("td")) {
+  if (e.target && e.target.matches('td')) {
     console.log('td clicked!');
-    event.target.style.background = selectedColor;
+    e.target.style.background = selectedColor;
   }
 });
+
+// Update background color of td's when DRAGGING through them
+// mousedown, mouseup, mousemove
+function dragColor() {
+  pixelGrid.addEventListener('mousedown', function(e) {
+    if (e.target && e.target.matches('td')) {
+      e.preventDefault();
+      console.log('true');
+      isClicked = true;
+    }
+  });
+
+  pixelGrid.addEventListener('mouseover', function(e) {
+    if (isClicked) {
+      e.target.style.background = selectedColor;
+    }
+  });
+
+};
+
 
 
 // -------- EVENT LISTENERS
