@@ -10,7 +10,7 @@ let selectedColor = colorInput.value;
 let pixelGrid = document.querySelector('#pixelCanvas');
 
 // Select specific cells
-let cell = document.querySelectorAll('td');
+// let cell = document.querySelectorAll('td');
 
 // Select the Submit button
 let submitGrid = document.querySelector('#submitGrid');
@@ -46,6 +46,8 @@ function makeGrid(e) {
       //create one td for each number input
       //console.log('add column to table');
       let column = document.createElement("td");
+      // add event listener to each created td
+      // column.addEventListener('click', changeCellColor);
       //append each created td to each created tr
       row.appendChild(column);
       //append that creation to the created tbody
@@ -66,6 +68,16 @@ function updateColor() {
 }
 
 
+// Update background color of td's when clicking them
+// HAVE TO USE EVENT DELEGATION BECAUSE TD'S ARE DYNAMICALLY GENERATED
+pixelGrid.addEventListener('click', function(e) {
+  if (e.target && e.target.matches("td")) {
+    console.log('td clicked!');
+    event.target.style.background = selectedColor;
+  }
+});
+
+
 // -------- EVENT LISTENERS
 
 //upon submission of form run makeGrid() allowing for prevention of default reload action
@@ -78,6 +90,6 @@ colorInput.addEventListener('change', updateColor);
 
 // Update background color of cell when clicked
 
-cell.addEventListener('click', function() {
-  cell.style.backgroundColor = selectedColor;
-});
+// cell.addEventListener('click', function() {
+//   cell.style.backgroundColor = selectedColor;
+// });
