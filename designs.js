@@ -117,12 +117,17 @@ gridSizeForm.addEventListener('submit', function(e) {
 colorInput.addEventListener('input', updateColor);
 
 // Update the selected color to white when clicking eraser
-eraser.addEventListener('click', function() {
-  selectedColor = '#fff';
+eraser.addEventListener('click', function(e) {
+  selectedColor = 'transparent';
 });
 
 eraserOff.addEventListener('click', function() {
   selectedColor = colorInput.value;
+});
+
+bomb.addEventListener('click', function() {
+  let cell = document.querySelectorAll('td');
+  cell.style.backgroundColor = '#fff';
 });
 
 // Update background color of cell when clicked

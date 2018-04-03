@@ -37,6 +37,14 @@ input[type=image] {
   background-color: #ffb7ba;
 }
 
+#bomb {
+  border: 1px solid #999;
+}
+
+#bomb:hover {
+  background-color: #ff0000;
+}
+
 table,
 tr,
 td {
