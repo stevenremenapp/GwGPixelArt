@@ -11,6 +11,7 @@ let pixelGrid = document.querySelector('#pixelCanvas');
 
 // Select specific cells
 // let cell = document.querySelectorAll('td');
+let cell = pixelGrid.querySelectorAll('td');
 
 // Select the Submit button
 let submitGrid = document.querySelector('#submitGrid');
@@ -126,8 +127,9 @@ eraserOff.addEventListener('click', function() {
 });
 
 bomb.addEventListener('click', function() {
-  let cell = document.querySelectorAll('td');
-  cell.style.backgroundColor = '#fff';
+  for (i = 0; i < cell.length; i++) {
+    cell[i].style.removeProperty('background');
+  }
 });
 
 // Update background color of cell when clicked
