@@ -89,20 +89,11 @@ pixelGrid.addEventListener('click', function(e) {
 // Update background color of td's when DRAGGING through them
 // mousedown, mouseup, mousemove
 function dragColor() {
-  pixelGrid.addEventListener('mousedown', function(e) {
-    if (e.target && e.target.matches('td')) {
-      e.preventDefault();
-      console.log('true');
-      isClicked = true;
-    }
-  });
-
   pixelGrid.addEventListener('mouseover', function(e) {
-    if (isClicked) {
+    if (e.target && e.target.matches('td')) {
       e.target.style.background = selectedColor;
     }
   });
-
 };
 
 
