@@ -23,6 +23,7 @@ input[type=image] {
 
 #eraser {
   border: 1px solid #999;
+  transition: background-color 0.4s;
 }
 
 #eraser:hover {
@@ -31,6 +32,7 @@ input[type=image] {
 
 #eraserOff {
   border: 1px solid #ed1c24;
+  transition: background-color 0.4s;
 }
 
 #eraserOff:hover {
@@ -39,6 +41,7 @@ input[type=image] {
 
 #bomb {
   border: 1px solid #999;
+  transition: background-color 0.4s;
 }
 
 #bomb:hover {

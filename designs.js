@@ -10,8 +10,7 @@ let selectedColor = colorInput.value;
 let pixelGrid = document.querySelector('#pixelCanvas');
 
 // Select specific cells
-// let cell = document.querySelectorAll('td');
-let cell = pixelGrid.querySelectorAll('td');
+// let cell = pixelGrid.querySelectorAll('td');
 
 // Select the Submit button
 let submitGrid = document.querySelector('#submitGrid');
@@ -140,13 +139,11 @@ eraserOff.addEventListener('click', function() {
 });
 
 bomb.addEventListener('click', function() {
+  let cell = pixelGrid.querySelectorAll('td');
+  // if (e.target && e.target.matches('td')) {
+  //   e.target.style.removeProperty('background');
+  // }
   for (i = 0; i < cell.length; i++) {
     cell[i].style.removeProperty('background');
   }
 });
-
-// Update background color of cell when clicked
-
-// cell.addEventListener('click', function() {
-//   cell.style.backgroundColor = selectedColor;
-// });
