@@ -25,9 +25,17 @@ let eraser = document.querySelector('#eraser');
 let eraserOff = document.querySelector('#eraserOff');
 
 // Boolean to check for dragging
-let isClicked = false;
+let mouseDown = false;
 
 // -------- FUNCTIONS
+
+document.addEventListener('mousedown', function() {
+  mouseDown = true;
+});
+
+document.addEventListener('mouseup', function() {
+  mouseDown = false;
+});
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid(e) {
@@ -79,6 +87,7 @@ function updateColor() {
 
 // Update background color of td's when CLICKING them
 // HAVE TO USE EVENT DELEGATION BECAUSE TD'S ARE DYNAMICALLY GENERATED
+//Probably could just add a class to all newly created squares?
 pixelGrid.addEventListener('click', function(e) {
   if (e.target && e.target.matches('td')) {
     console.log('td clicked!');
@@ -88,13 +97,26 @@ pixelGrid.addEventListener('click', function(e) {
 
 // Update background color of td's when DRAGGING through them
 // mousedown, mouseup, mousemove
-function dragColor() {
-  pixelGrid.addEventListener('mouseover', function(e) {
-    if (e.target && e.target.matches('td')) {
-      e.target.style.background = selectedColor;
-    }
-  });
-};
+pixelGrid.addEventListener('mouseover', function(e) {
+  if ((e.target && e.target.matches('td')) && (mouseDown)) {
+    e.target.style.background = selectedColor;
+  };
+});
+
+// function colorCell() {
+//   e.target.style.background = selectedColor;
+// }
+//
+// function colorGrid() {
+//   cell.forEach(function(e) {
+//     cell.addEventListener('click', colorCell);
+//     cell.addEventListener('mouseover', function(f) {
+//       if(mouseDown) {
+//         colorCell(f);
+//       }
+//     })
+//   })
+// }
 
 
 
