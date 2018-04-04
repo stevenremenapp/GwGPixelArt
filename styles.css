@@ -79,7 +79,7 @@ input[type=number] {
   border-radius: 50%;
   background: transparent;
   padding: 5px;
-  cursor: hover;
+  cursor: pointer;
   outline: 3px solid black;
 }
 
