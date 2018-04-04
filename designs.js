@@ -1,10 +1,24 @@
 // -------- VARIABLES
 
+//https://eager.io/blog/communicating-between-javascript-and-css-with-css-variables/
+
 // Select color input
 let colorInput = document.querySelector('#colorPicker');
 
+
 // Select the updated chosen color
 let selectedColor = colorInput.value;
+
+//Select the h1
+let title = document.querySelector('h1');
+
+//Dynamically set the value of the color picker outline!!!
+colorInput.addEventListener('input', function() {
+  colorInput.style.setProperty('outline', '3px solid' + colorInput.value);
+  title.style.setProperty('color', colorInput.value);
+});
+
+
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
