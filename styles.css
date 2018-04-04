@@ -79,6 +79,8 @@ input[type=number] {
   border-radius: 50%;
   background: transparent;
   padding: 5px;
+  cursor: hover;
+  outline: 3px solid black;
 }
 
 .clearBoxes {
