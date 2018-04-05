@@ -91,6 +91,8 @@ function makeGrid(e) {
     //append created tbody to table
     pixelGrid.appendChild(tableBody);
 
+    pixelGrid.style.setProperty('background', canvasBackground.value);
+
     // let newTable = pixelGrid.appendChild(tableBody);
     // tableBody = pixelGrid.replaceChild(newTable, tableBody);
   };
@@ -199,6 +201,8 @@ colorBackground.addEventListener('input', function() {
 
 //Dynamically set the value of the canvas background
 canvasBackground.addEventListener('input', function() {
+  canvasBackground.style.setProperty('outline', '3px solid' + canvasBackground.value);
+  canvasBackground.style.transition = 'outline 1s';
   let colorInput = document.querySelector('#colorPicker');
   let cell = pixelGrid.querySelectorAll('td');
   for (i = 0; i < cell.length; i++) {
