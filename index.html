@@ -9,7 +9,7 @@
 <body>
     <h1>Pixel Art Maker</h1>
 
-    <h2>Choose Grid Size</h2>
+    <h2>Choose Grid Size (and Clear Current Grid)</h2>
     <form id="sizePicker">
         Grid Height:
         <input type="number" id="inputHeight" name="height" min="1" value="10">
@@ -20,11 +20,13 @@
 
     <h2>Pick A Color to Draw With</h2>
     <input type="color" id="colorPicker">
-    <h2>Pick a Color for Your Background</h2>
+    <h2>Pick a Color for Your Window Background</h2>
     <input type="color" id="colorBackground">
     <h2>Pick a Color for Your Canvas Background</h2>
     <p>FYI: This will clear anything you've colored onto the grid with the color you choose (because I couldn't figure out just how to clear only the untouched canvas parts).</p>
-    <input type="color" id="canvasBackground">
+    <input type="color" id="canvasBackground" value="#ffffff">
+    <h2>Pick a Color for Your Gridlines</h2>
+    <input type="color" id="gridlinesColor">
 
     <h2>Eraser</h2>
     <span>On: </span>

@@ -6,18 +6,22 @@
 let colorInput = document.querySelector('#colorPicker');
 let colorBackground = document.querySelector('#colorBackground');
 let canvasBackground = document.querySelector('#canvasBackground');
+let gridlinesColor = document.querySelector('#gridlinesColor');
 
 
 // Select the updated chosen colors
 let selectedColor = colorInput.value;
-let selectedBackgroundColor = colorBackground.value;
-let selectedCanvasColor = canvasBackground.value;
+// let selectedBackgroundColor = colorBackground.value;
+// let selectedCanvasColor = canvasBackground.value;
 
 //Select the h1
 let title = document.querySelector('h1');
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
+
+//Select the table outlines
+let allGridlines = document.querySelectorAll('table, tr, td');
 
 // Select specific cells
 // let cell = pixelGrid.querySelectorAll('td');
@@ -80,8 +84,8 @@ function makeGrid(e) {
       //create one td for each number input
       //console.log('add column to table');
       let column = document.createElement("td");
-      // add event listener to each created td
-      // column.addEventListener('click', changeCellColor);
+      //allow user to keep gridlines color, if chosen
+      column.style.setProperty('border', '1px solid' + gridlinesColor.value);
       //append each created td to each created tr
       row.appendChild(column);
       //append that creation to the created tbody
@@ -91,10 +95,9 @@ function makeGrid(e) {
     //append created tbody to table
     pixelGrid.appendChild(tableBody);
 
+    //allow user to keep canvas color, if chosen
     pixelGrid.style.setProperty('background', canvasBackground.value);
 
-    // let newTable = pixelGrid.appendChild(tableBody);
-    // tableBody = pixelGrid.replaceChild(newTable, tableBody);
   };
 };
 
@@ -173,6 +176,7 @@ eraserOff.addEventListener('click', function() {
   eraserOff.style.setProperty('background', 'pink');
 });
 
+//Need to loop to account for user submitted tables (basically anything larger than the html encoded 10X10 -- or 100 total cells cleared)
 bomb.addEventListener('click', function() {
   let cell = pixelGrid.querySelectorAll('td');
   // if (e.target && e.target.matches('td')) {
@@ -203,12 +207,25 @@ colorBackground.addEventListener('input', function() {
 canvasBackground.addEventListener('input', function() {
   canvasBackground.style.setProperty('outline', '3px solid' + canvasBackground.value);
   canvasBackground.style.transition = 'outline 1s';
-  let colorInput = document.querySelector('#colorPicker');
+  // let colorInput = document.querySelector('#colorPicker');
+  //removing these already declared variables from this function breaks it for some reason
   let cell = pixelGrid.querySelectorAll('td');
   for (i = 0; i < cell.length; i++) {
-    if (cell[i].style.background.value != colorInput.value) {
+    // if (cell[i].style.background.value != colorInput.value) {
     cell[i].style.setProperty('background', canvasBackground.value);
     cell[i].style.transition = 'background 1s';
-    }
+    // }
   }
+});
+
+//Dynamically set the color of the gridlines
+gridlinesColor.addEventListener('input', function() {
+  gridlinesColor.style.setProperty('outline', '3px solid' + gridlinesColor.value);
+  gridlinesColor.style.transition = 'outline 2s';
+  //removing these already declared variables from this function breaks it for some reason
+  let allGridlines = pixelGrid.querySelectorAll('table, tr, td');
+  for (i = 0; i < allGridlines.length; i++) {
+    allGridlines[i].style.setProperty('border', '1px solid' + gridlinesColor.value);
+    allGridlines[i].style.transition = 'border 1s';
+  };
 });
