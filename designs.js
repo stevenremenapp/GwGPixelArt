@@ -127,6 +127,7 @@ pixelGrid.addEventListener('mouseover', function(e) {
 });
 
 pixelGrid.addEventListener('touchmove', function(e) {
+  e.preventDefault();
   if ((e.target && e.target.matches('td')) && (mouseDown)) {
     e.target.style.background = selectedColor;
   }
