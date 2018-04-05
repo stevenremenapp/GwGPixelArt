@@ -12,7 +12,7 @@ let gridlinesColor = document.querySelector('#gridlinesColor');
 // Select the updated chosen colors
 let selectedColor = colorInput.value;
 // let selectedBackgroundColor = colorBackground.value;
-// let selectedCanvasColor = canvasBackground.value;
+//let selectedCanvasColor = canvasBackground.value;
 
 //Select the h1
 let title = document.querySelector('h1');
@@ -34,8 +34,11 @@ let gridSizeForm = document.querySelector('#sizePicker');
 
 // Select the erasers
 let eraser = document.querySelector('#eraser');
-
 let eraserOff = document.querySelector('#eraserOff');
+let bomb = document.querySelector('#bomb');
+let transparentEraser = document.querySelector('#transparentEraser');
+let transparentEraserOff = document.querySelector('#transparentEraserOff');
+let transparentBomb = document.querySelector('#transparentBomb');
 
 // Boolean to check for dragging
 let mouseDown = false;
@@ -162,9 +165,9 @@ gridSizeForm.addEventListener('submit', function(e) {
 // Update the selectedColor when using color picker
 colorInput.addEventListener('input', updateColor);
 
-// Update the selected color to white when clicking eraser
+// Update the selected color to transparent when clicking eraser
 eraser.addEventListener('click', function() {
-  selectedColor = 'transparent';
+  selectedColor = canvasBackground.value;
   eraser.style.setProperty('background', 'pink');
   eraserOff.style.setProperty('background', 'transparent');
 });
@@ -185,6 +188,26 @@ bomb.addEventListener('click', function() {
     cell[i].style.setProperty('background', canvasBackground.value);
     cell[i].style.transition = 'background 2s';
   }
+});
+
+transparentEraser.addEventListener('click', function() {
+  selectedColor = 'transparent';
+  transparentEraser.style.setProperty('background', 'pink');
+  transparentEraserOff.style.setProperty('background', 'transparent');
+});
+
+transparentBomb.addEventListener('click', function() {
+  let cell = pixelGrid.querySelectorAll('td');
+  for (i = 0; i < cell.length; i++) {
+    cell[i].style.setProperty('background', 'transparent');
+    cell[i].style.transition = 'background 2s';
+  }
+});
+
+transparentEraserOff.addEventListener('click', function() {
+  selectedColor = colorInput.value;
+  transparentEraser.style.setProperty('background', 'transparent');
+  transparentEraserOff.style.setProperty('background', 'pink');
 });
 
 //Dynamically set the value of the color picker outline and title!!!

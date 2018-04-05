@@ -21,23 +21,25 @@ input[type=image] {
   width: auto;
 }
 
-#eraser {
+#eraser,
+#transparentEraser {
   border: 1px solid #999;
-  transition: background-color 0.4s;
 }
 
-#eraserOff {
+#eraserOff,
+#transparentEraserOff {
   border: 1px solid #ed1c24;
-  transition: background-color 0.4s;
   background: pink;
 }
 
-#bomb {
+#bomb,
+#transparentBomb {
   border: 1px solid #999;
   transition: background-color 0.4s;
 }
 
-#bomb:hover {
+#bomb:hover,
+#transparentBomb:hover {
   background-color: #ff0000;
 }
 

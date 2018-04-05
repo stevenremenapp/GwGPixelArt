@@ -21,20 +21,29 @@
     <h2>Pick A Color to Draw With</h2>
     <input type="color" id="colorPicker">
     <h2>Pick a Color for Your Window Background</h2>
-    <input type="color" id="colorBackground">
+    <input type="color" id="colorBackground" value="#ffffff">
     <h2>Pick a Color for Your Canvas Background</h2>
     <p>FYI: This will clear anything you've colored onto the grid with the color you choose (because I couldn't figure out just how to clear only the untouched canvas parts).</p>
     <input type="color" id="canvasBackground" value="#ffffff">
     <h2>Pick a Color for Your Gridlines</h2>
     <input type="color" id="gridlinesColor">
 
-    <h2>Eraser</h2>
+    <h2>Restore Canvas Color</h2>
     <span>On: </span>
     <input type="image" name="eraser" src="img/eraser.png" alt="image of an eraser" id="eraser">
     <span>Off: </span>
-    <input type="image" name="eraserOff" src="img/eraserOff.png" alt="image of an eraser" id="eraserOff">
+    <input type="image" name="eraserOff" src="img/eraserOff.png" alt="image of an eraser to turn off" id="eraserOff">
     <span>Clear all!</span>
     <input type="image" name="bomb" src="img/bomb.png" alt="image of a bomb" id="bomb">
+
+    <h2>Make Grid Transparent</h2>
+    <span>On: </span>
+    <input type="image" name="transparentEraser" src="img/eraser.png" alt="image of an eraser attached to transparent eraser" id="transparentEraser">
+    <span>Off: </span>
+    <input type="image" name="transparentEraserOff" src="img/eraserOff.png" alt="image of an eraser to turn off the transparent eraser" id="transparentEraserOff">
+    <span>Clear all!</span>
+    <input type="image" name="transparentBomb" src="img/bomb.png" alt="image of a bomb" id="transparentBomb">
+
 
     <h2>Design Canvas</h2>
     <table id="pixelCanvas">
