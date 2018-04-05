@@ -46,7 +46,15 @@ document.addEventListener('mousedown', function() {
   mouseDown = true;
 });
 
+document.addEventListener('touchstart', function() {
+  mouseDown = true;
+});
+
 document.addEventListener('mouseup', function() {
+  mouseDown = false;
+});
+
+document.addEventListener('touchend', function() {
   mouseDown = false;
 });
 
@@ -105,7 +113,7 @@ function updateColor() {
 //Probably could just add a class to all newly created squares?
 pixelGrid.addEventListener('click', function(e) {
   if (e.target && e.target.matches('td')) {
-    console.log('td clicked!');
+    //console.log('td clicked!');
     e.target.style.background = selectedColor;
   }
 });
@@ -116,6 +124,12 @@ pixelGrid.addEventListener('mouseover', function(e) {
   if ((e.target && e.target.matches('td')) && (mouseDown)) {
     e.target.style.background = selectedColor;
   };
+});
+
+pixelGrid.addEventListener('touchmove', function(e) {
+  if ((e.target && e.target.matches('td')) && (mouseDown)) {
+    e.target.style.background = selectedColor;
+  }
 });
 
 // function colorCell() {
