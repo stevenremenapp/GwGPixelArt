@@ -95,6 +95,8 @@ function makeGrid(e) {
 // Update the selectedColor data when using color picker
 function updateColor() {
   selectedColor = colorInput.value;
+  eraser.style.setProperty('background', 'transparent');
+  eraserOff.style.setProperty('background', 'pink');
 }
 
 

@@ -26,17 +26,10 @@ input[type=image] {
   transition: background-color 0.4s;
 }
 
-#eraser:hover {
-  background-color: #ccc;
-}
-
 #eraserOff {
   border: 1px solid #ed1c24;
   transition: background-color 0.4s;
-}
-
-#eraserOff:hover {
-  background-color: #ffb7ba;
+  background: pink;
 }
 
 #bomb {
