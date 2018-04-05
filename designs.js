@@ -2,25 +2,19 @@
 
 //https://eager.io/blog/communicating-between-javascript-and-css-with-css-variables/
 
-// Select color input
+// Select color inputs
 let colorInput = document.querySelector('#colorPicker');
+let colorBackground = document.querySelector('#colorBackground');
+let canvasBackground = document.querySelector('#canvasBackground');
 
 
-// Select the updated chosen color
+// Select the updated chosen colors
 let selectedColor = colorInput.value;
+let selectedBackgroundColor = colorBackground.value;
+let selectedCanvasColor = canvasBackground.value;
 
 //Select the h1
 let title = document.querySelector('h1');
-
-//Dynamically set the value of the color picker outline!!!
-colorInput.addEventListener('input', function() {
-  colorInput.style.setProperty('outline', '3px solid' + colorInput.value);
-  colorInput.style.transition = 'outline 2s';
-  title.style.setProperty('color', colorInput.value);
-  title.style.transition = 'color 2s';
-});
-
-
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
@@ -117,6 +111,7 @@ pixelGrid.addEventListener('click', function(e) {
   if (e.target && e.target.matches('td')) {
     //console.log('td clicked!');
     e.target.style.background = selectedColor;
+    e.target.style.transition = 'background 1s';
   }
 });
 
@@ -125,6 +120,7 @@ pixelGrid.addEventListener('click', function(e) {
 pixelGrid.addEventListener('mouseover', function(e) {
   if ((e.target && e.target.matches('td')) && (mouseDown)) {
     e.target.style.background = selectedColor;
+    e.target.style.transition = 'background 1s';
   };
 });
 
@@ -181,6 +177,34 @@ bomb.addEventListener('click', function() {
   //   e.target.style.removeProperty('background');
   // }
   for (i = 0; i < cell.length; i++) {
-    cell[i].style.removeProperty('background');
+    cell[i].style.setProperty('background', canvasBackground.value);
+    cell[i].style.transition = 'background 2s';
+  }
+});
+
+//Dynamically set the value of the color picker outline and title!!!
+colorInput.addEventListener('input', function() {
+  colorInput.style.setProperty('outline', '3px solid' + selectedColor);
+  colorInput.style.transition = 'outline 2s';
+  title.style.setProperty('color', selectedColor);
+  title.style.transition = 'color 2s';
+});
+
+//Dynamically set the value of the body background
+colorBackground.addEventListener('input', function() {
+  // let bodyBackground = document.getElementsByTagName('body');
+  document.body.style.setProperty('background', colorBackground.value);
+  document.body.style.transition = 'background 2s';
+});
+
+//Dynamically set the value of the canvas background
+canvasBackground.addEventListener('input', function() {
+  let colorInput = document.querySelector('#colorPicker');
+  let cell = pixelGrid.querySelectorAll('td');
+  for (i = 0; i < cell.length; i++) {
+    if (cell[i].style.background.value != colorInput.value) {
+    cell[i].style.setProperty('background', canvasBackground.value);
+    cell[i].style.transition = 'background 1s';
+    }
   }
 });

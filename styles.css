@@ -51,6 +51,7 @@ table {
     border-collapse: collapse;
     margin: 0 auto;
     cursor: crosshair;
+    max-width: 93%;
 }
 
 tr {
@@ -65,7 +66,7 @@ input[type=number] {
     width: 6em;
 }
 
-#colorPicker {
+input[type=color] {
   width: 35px;
   height: 35px;
   border: none;
