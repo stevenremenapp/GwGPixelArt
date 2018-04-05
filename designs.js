@@ -15,7 +15,9 @@ let title = document.querySelector('h1');
 //Dynamically set the value of the color picker outline!!!
 colorInput.addEventListener('input', function() {
   colorInput.style.setProperty('outline', '3px solid' + colorInput.value);
+  colorInput.style.transition = 'outline 2s';
   title.style.setProperty('color', colorInput.value);
+  title.style.transition = 'color 2s';
 });
 
 
