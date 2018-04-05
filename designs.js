@@ -84,6 +84,8 @@ function makeGrid(e) {
       //create one td for each number input
       //console.log('add column to table');
       let column = document.createElement("td");
+      //allow user to keep canvas color, if chosen
+      column.style.setProperty('background', canvasBackground.value);
       //allow user to keep gridlines color, if chosen
       column.style.setProperty('border', '1px solid' + gridlinesColor.value);
       //append each created td to each created tr
@@ -94,9 +96,6 @@ function makeGrid(e) {
 
     //append created tbody to table
     pixelGrid.appendChild(tableBody);
-
-    //allow user to keep canvas color, if chosen
-    pixelGrid.style.setProperty('background', canvasBackground.value);
 
   };
 };
