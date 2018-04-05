@@ -32,7 +32,7 @@ let submitGrid = document.querySelector('#submitGrid');
 //Select the Grid size form
 let gridSizeForm = document.querySelector('#sizePicker');
 
-// Select the eraser
+// Select the erasers
 let eraser = document.querySelector('#eraser');
 
 let eraserOff = document.querySelector('#eraserOff');
@@ -144,12 +144,16 @@ gridSizeForm.addEventListener('submit', function(e) {
 colorInput.addEventListener('input', updateColor);
 
 // Update the selected color to white when clicking eraser
-eraser.addEventListener('click', function(e) {
+eraser.addEventListener('click', function() {
   selectedColor = 'transparent';
+  eraser.style.setProperty('background', 'pink');
+  eraserOff.style.setProperty('background', 'transparent');
 });
 
 eraserOff.addEventListener('click', function() {
   selectedColor = colorInput.value;
+  eraser.style.setProperty('background', 'transparent');
+  eraserOff.style.setProperty('background', 'pink');
 });
 
 bomb.addEventListener('click', function() {
