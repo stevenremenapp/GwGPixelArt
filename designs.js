@@ -7,6 +7,7 @@ let colorInput = document.querySelector('#colorPicker');
 let colorBackground = document.querySelector('#colorBackground');
 let canvasBackground = document.querySelector('#canvasBackground');
 let gridlinesColor = document.querySelector('#gridlinesColor');
+let textColor = document.querySelector('#textColor');
 
 
 // Select the updated chosen colors
@@ -15,7 +16,7 @@ let selectedColor = colorInput.value;
 //let selectedCanvasColor = canvasBackground.value;
 
 //Select the h1
-let title = document.querySelector('h1');
+// let title = document.querySelector('h1');
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
@@ -214,16 +215,28 @@ transparentEraserOff.addEventListener('click', function() {
 colorInput.addEventListener('input', function() {
   colorInput.style.setProperty('outline', '3px solid' + selectedColor);
   colorInput.style.transition = 'outline 2s';
-  title.style.setProperty('color', selectedColor);
-  title.style.transition = 'color 2s';
+  // title.style.setProperty('color', selectedColor);
+  // title.style.transition = 'color 2s';
 });
 
-//Dynamically set the value of the body background
+//Dynamically set the value of the document body background
 colorBackground.addEventListener('input', function() {
   // let bodyBackground = document.getElementsByTagName('body');
   document.body.style.setProperty('background', colorBackground.value);
   document.body.style.transition = 'background 2s';
 });
+
+//Dynamically set the value of the text color
+textColor.addEventListener('input', function() {
+  textColor.style.outline = '3px solid' + textColor.value;
+  textColor.style.transition = 'outline 2s';
+  let allText = document.querySelectorAll('h1, h2, span, p');
+  for (i = 0; i < allText.length; i++) {
+    allText[i].style.color = textColor.value;
+    allText[i].style.transition = 'color 2s';
+  };
+});
+
 
 //Dynamically set the value of the canvas background
 canvasBackground.addEventListener('input', function() {

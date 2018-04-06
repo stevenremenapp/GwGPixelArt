@@ -78,7 +78,3 @@ input[type=color] {
   cursor: pointer;
   outline: 3px solid black;
 }
-
-.clearBoxes {
-  background: transparent;
-}
