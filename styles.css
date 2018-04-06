@@ -1,11 +1,23 @@
+@font-face {
+  font-family: HoganMania;
+  src: url(HoganMania.ttf);
+}
+
 body {
     text-align: center;
 }
 
 h1 {
-    font-family: Monoton;
-    font-size: 70px;
-    margin: 0.2em;
+    font-family: HoganMania, 'Contrail One';
+    font-size: 200px;
+    margin: 0;
+    letter-spacing: 8px;
+}
+
+h2,
+span,
+p {
+  font-family: 'Contrail One', cursive;
 }
 
 h2 {
