@@ -109,6 +109,8 @@ function updateColor() {
   selectedColor = colorInput.value;
   eraser.style.setProperty('background', 'transparent');
   eraserOff.style.setProperty('background', 'pink');
+  transparentEraser.style.setProperty('background', 'transparent');
+  transparentEraserOff.style.setProperty('background', 'pink');
 }
 
 

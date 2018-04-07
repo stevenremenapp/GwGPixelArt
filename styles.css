@@ -73,7 +73,7 @@ table {
     border-collapse: collapse;
     margin: 0 auto;
     cursor: crosshair;
-    max-width: 93%;
+    max-width: 95%;
 }
 
 tr {
@@ -104,6 +104,9 @@ input[type=color] {
   h1 {
     font-size: 95px;
     letter-spacing: 4px;
+  }
+  h2:first-of-type {
+      margin-top: 0.25em;
   }
   h2 {
     font-size: 20px;
