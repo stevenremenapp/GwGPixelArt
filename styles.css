@@ -28,9 +28,17 @@ h2:first-of-type {
     margin-top: 0;
 }
 
+p {
+  margin-top: 0;
+}
+
 input[type=image] {
   height: 30px;
   width: auto;
+}
+
+#submitGrid {
+  margin-top: 0.5em;
 }
 
 #eraser,
@@ -78,6 +86,7 @@ td {
 
 input[type=number] {
     width: 6em;
+    margin-top: 0.5em;
 }
 
 input[type=color] {

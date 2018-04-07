@@ -50,17 +50,17 @@ document.addEventListener('mousedown', function() {
   mouseDown = true;
 });
 
-document.addEventListener('touchstart', function() {
-  mouseDown = true;
-});
+// document.addEventListener('touchstart', function() {
+//   mouseDown = true;
+// });
 
 document.addEventListener('mouseup', function() {
   mouseDown = false;
 });
 
-document.addEventListener('touchend', function() {
-  mouseDown = false;
-});
+// document.addEventListener('touchend', function() {
+//   mouseDown = false;
+// });
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid(e) {
@@ -132,10 +132,19 @@ pixelGrid.addEventListener('mouseover', function(e) {
   };
 });
 
+// learned how to do touch and drag from here: https://codepen.io/grahammatt/pen/eVrdYJ?editors=0010 THANK YOUUUU
+
 pixelGrid.addEventListener('touchmove', function(e) {
+  // to prevent scrolling while user is touching grid
   e.preventDefault();
-  if ((e.target && e.target.matches('td')) && (mouseDown)) {
-    e.target.style.background = selectedColor;
+  // get the first position touched
+  let touch = e.touches[0];
+  // grab the current touched position on the screen and call it 'element'
+  let element = document.elementFromPoint(touch.clientX, touch.clientY);
+  // if the element is a td then color, if not then don't
+  if (element.tagName === 'TD') {
+    // change the background color
+    element.style.background = selectedColor;
   }
 });
 
@@ -228,6 +237,12 @@ colorBackground.addEventListener('input', function() {
   // let bodyBackground = document.getElementsByTagName('body');
   document.body.style.setProperty('background', colorBackground.value);
   document.body.style.transition = 'background 2s';
+  document.querySelector('#inputHeight').style.setProperty('background', colorBackground.value);
+  document.querySelector('#inputWidth').style.setProperty('background', colorBackground.value);
+  document.querySelector('#inputHeight').style.transition = 'background 2s';
+  document.querySelector('#inputWidth').style.transition = 'background 2s';
+  // document.querySelector('#inputHeight').style.backgroundColor = 'colorBackground.value';
+  // document.querySelector('#inputWidth').style.backgroundColor = 'colorBackground.value';
 });
 
 //Dynamically set the value of the text color
