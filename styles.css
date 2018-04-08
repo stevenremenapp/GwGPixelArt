@@ -89,7 +89,8 @@ input[type=number] {
     margin-top: 0.5em;
 }
 
-input[type=color] {
+input[type=color],
+input[type=checkBox] {
   width: 35px;
   height: 35px;
   border: none;

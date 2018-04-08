@@ -8,15 +8,13 @@ let colorBackground = document.querySelector('#colorBackground');
 let canvasBackground = document.querySelector('#canvasBackground');
 let gridlinesColor = document.querySelector('#gridlinesColor');
 let textColor = document.querySelector('#textColor');
+let randomColorCheckbox = document.querySelector('#randomColor');
 
 
 // Select the updated chosen colors
 let selectedColor = colorInput.value;
 // let selectedBackgroundColor = colorBackground.value;
 //let selectedCanvasColor = canvasBackground.value;
-
-//Select the h1
-// let title = document.querySelector('h1');
 
 // Select table
 let pixelGrid = document.querySelector('#pixelCanvas');
@@ -111,7 +109,21 @@ function updateColor() {
   eraserOff.style.setProperty('background', 'pink');
   transparentEraser.style.setProperty('background', 'transparent');
   transparentEraserOff.style.setProperty('background', 'pink');
+  randomColorCheckbox.checked = false;
 }
+
+function randomColor() {
+  eraser.style.setProperty('background', 'transparent');
+  eraserOff.style.setProperty('background', 'pink');
+  transparentEraser.style.setProperty('background', 'transparent');
+  transparentEraserOff.style.setProperty('background', 'pink');
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return selectedColor = color;
+};
 
 
 // Update background color of td's when CLICKING them
@@ -232,6 +244,16 @@ colorInput.addEventListener('input', function() {
   colorInput.style.transition = 'outline 2s';
   // title.style.setProperty('color', selectedColor);
   // title.style.transition = 'color 2s';
+});
+
+randomColorCheckbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log('click');
+    randomColor();
+  } else {
+    console.log('unclick');
+    updateColor();
+  }
 });
 
 //Dynamically set the value of the document body background
