@@ -113,10 +113,12 @@ function updateColor() {
 }
 
 function randomColor() {
-  eraser.style.setProperty('background', 'transparent');
-  eraserOff.style.setProperty('background', 'pink');
-  transparentEraser.style.setProperty('background', 'transparent');
-  transparentEraserOff.style.setProperty('background', 'pink');
+  if (eraser.style.background === 'pink' || transparentEraser.style.background === 'pink') {
+    eraser.style.setProperty('background', 'transparent');
+    eraserOff.style.setProperty('background', 'pink');
+    transparentEraser.style.setProperty('background', 'transparent');
+    transparentEraserOff.style.setProperty('background', 'pink');
+  };
   let letters = '0123456789ABCDEF';
   let color = '#';
   for (var i = 0; i < 6; i++) {
@@ -131,9 +133,15 @@ function randomColor() {
 //Probably could just add a class to all newly created squares?
 pixelGrid.addEventListener('click', function(e) {
   if (e.target && e.target.matches('td')) {
+    if (randomColorCheckbox.checked) {
+      randomColor();
+      e.target.style.background = selectedColor;
+      e.target.style.transition = 'background 1s';
+    } else {
     //console.log('td clicked!');
     e.target.style.background = selectedColor;
     e.target.style.transition = 'background 1s';
+    }
   }
 });
 
@@ -141,8 +149,14 @@ pixelGrid.addEventListener('click', function(e) {
 // mousedown, mouseup, mousemove
 pixelGrid.addEventListener('mouseover', function(e) {
   if ((e.target && e.target.matches('td')) && (mouseDown)) {
+    if (randomColorCheckbox.checked) {
+      randomColor();
+      e.target.style.background = selectedColor;
+      e.target.style.transition = 'background 1s';
+    } else {
     e.target.style.background = selectedColor;
     e.target.style.transition = 'background 1s';
+    }
   };
 });
 
@@ -157,8 +171,15 @@ pixelGrid.addEventListener('touchmove', function(e) {
   let element = document.elementFromPoint(touch.clientX, touch.clientY);
   // if the element is a td then color, if not then don't
   if (element.tagName === 'TD') {
-    // change the background color
-    element.style.background = selectedColor;
+    if (randomColorCheckbox.checked) {
+      randomColor();
+      element.style.background = selectedColor;
+      element.style.transition = 'background 1s';
+    } else {
+      // change the background color
+      element.style.background = selectedColor;
+      element.style.transition = 'background 1s';
+    }
   }
 });
 
@@ -196,6 +217,7 @@ eraser.addEventListener('click', function() {
   eraserOff.style.setProperty('background', 'transparent');
   transparentEraser.style.setProperty('background', 'transparent');
   transparentEraserOff.style.setProperty('background', 'pink');
+  randomColorCheckbox.checked = false;
 });
 
 eraserOff.addEventListener('click', function() {
@@ -222,6 +244,7 @@ transparentEraser.addEventListener('click', function() {
   transparentEraserOff.style.setProperty('background', 'transparent');
   eraser.style.setProperty('background', 'transparent');
   eraserOff.style.setProperty('background', 'pink');
+  randomColorCheckbox.checked = false;
 });
 
 transparentEraserOff.addEventListener('click', function() {
