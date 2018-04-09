@@ -137,6 +137,7 @@ pixelGrid.addEventListener('click', function(e) {
       randomColor();
       e.target.style.background = selectedColor;
       e.target.style.transition = 'background 1s';
+      randomColorCheckbox.style.setProperty('outline', '3px solid' + selectedColor);
     } else {
     //console.log('td clicked!');
     e.target.style.background = selectedColor;
@@ -153,6 +154,7 @@ pixelGrid.addEventListener('mouseover', function(e) {
       randomColor();
       e.target.style.background = selectedColor;
       e.target.style.transition = 'background 1s';
+      randomColorCheckbox.style.setProperty('outline', '3px solid' + selectedColor);
     } else {
     e.target.style.background = selectedColor;
     e.target.style.transition = 'background 1s';
@@ -175,6 +177,7 @@ pixelGrid.addEventListener('touchmove', function(e) {
       randomColor();
       element.style.background = selectedColor;
       element.style.transition = 'background 1s';
+      randomColorCheckbox.style.setProperty('outline', '3px solid' + selectedColor);
     } else {
       // change the background color
       element.style.background = selectedColor;
